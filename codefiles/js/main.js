@@ -5,9 +5,9 @@ let settings = {
   showOutOfStockItems: true,
   showDescription: false,
   currency: '₹',
-  shopphone: '919901297970',
-  shopemail: 'hi@wiosdesigns.xyz',
-  inventoryURL: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTv-9lnCnxDUXL7Uj-PjE1IRlvhkqKxkC5qTVa5VDnv1euduvxBSfhSODhcKClsD4VlbE7MLcSa3MMo/pub?output=csv'
+  shopphone: '919844923849',
+  shopemail: 'None',
+  inventoryURL: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQrhRdVZPtI-b7hYzzTa_bAmGE8oax_vOAw58L2feiVQ0fXvVRRYV4jG4Lf-PprLuUdfQmSs1o2XNp1/pub?gid=0&single=true&output=csv'
 };
 
 function init(){

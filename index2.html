@@ -1,0 +1,166 @@
+<html>
+<head>
+  <title>FlashCart | WhatsApp shopping template</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1d201f">
+  <meta charset="utf-8">
+  <meta name="description" content="FlashCart is shopping cart that lets your customers order via WhatsApp">
+  
+  <meta property="og:title" content="FlashCart: Shop Via WhatsApp" />
+  <meta property="og:url" content="https://flashcart.wiosdesigns.xyz" />
+  <meta property="og:description" content="FlashCart is shopping cart that lets your customers order via WhatsApp">
+  <meta property="og:image" content="/codefiles/assets/ogicon.png">
+  <meta property="og:type" content="website" />
+  
+  <meta name="twitter:card" content="app"></meta>
+  <meta property="twitter:image" content="/codefiles/assets/ogbg.png">
+  
+  
+  <link rel="shortcut icon" type="image/png" href="/codefiles/assets/icon.png"/>
+  <link rel="stylesheet" type="text/css" href="/codefiles/css/main.css"/>
+  <script src="/codefiles/js/hnav.js"></script>
+  <script src="/codefiles/js/papaparse.min.js"></script>
+  <script src="/codefiles/js/vue.min.js"></script>
+  <script src="/codefiles/js/settings.js"></script>
+  <script src="/codefiles/js/main.js"></script>
+</head>
+<body onload="init()">
+<div id="loading">
+  <img src="/codefiles/assets/icon.png"><br>
+  <h2>Loading</h2>
+</div>
+<div id="app">
+  <header>
+    <a href="#home">
+      <img src="/codefiles/assets/logotext.png">
+    </a>
+    <a href="#shop" v-if="page=='home'">
+      SHOP
+    </a>
+    <a href="#home" v-else>
+      HOME
+    </a>
+  </header>
+  <section id="home" class="hnav" hnav:start>
+    <h3>
+      FlashCart is a quick-setup and easy-use 
+      website template for your online shop. 
+      <br>
+      Manage your inventory
+      using familiar spreadsheet software such as MS Excel or Google Sheets.
+      Receive and manage orders via WhatsApp, Email or SMS.
+    </h3>
+    <a href="#shop" class="btn">Shop Now</a>
+    
+  </section>
+  
+  <section id="shop" class="hnav">
+    <p>
+      <input type="name" id="searchquery" v-on:input="filter_items" placeholder="Search">
+      <select v-model="activeCategory" v-on:change="filter_items">
+        <option value="all">All Categories</option>
+        <option v-for="category in categories" v-bind:value="category">
+          {{category}}
+        </option>
+      </select>
+    </p>
+    <div>  
+      <shop-item 
+        v-for="i in items" 
+        v-bind:name="i.Name"
+        v-bind:image="i.Image"
+        v-if="i.match"
+        v-bind:description="i.Description"
+        v-bind:unitprice="i['Unit Price']"
+        v-bind:unit="i['Unit']"
+        v-bind:instock="i['In Stock']"
+        v-model:value="i.quantity"
+        >
+      </shop-item>
+    </div>  
+    
+  </section>
+  
+    
+  <section id="checkout" class="hnav" hnav:on="app.cartpage=true;" hnav:off="app.cartpage=false;">
+    <h1>Your Cart</h1>
+    <button v-if="nitems!=0" onclick="goToOrder()">Review & Place Order</button><br>
+      
+    <shop-item 
+      v-for="i in items" 
+      v-if="i.quantity>0" 
+      v-bind:name="i.Name"
+      v-bind:description="i.Description"
+      v-bind:unitprice="i['Unit Price']"
+      v-bind:unit="i['Unit']"
+      v-bind:instock="i['In Stock']"
+      v-model:value="i.quantity"
+      v-bind:compact="true"
+      >
+    </shop-item>
+    
+    <div v-if="nitems==0">
+      Your cart is empty
+    </div>
+    <div v-else id="placeorder">
+      <span>Total: {{settings.currency}}{{carttotal}}</span>
+      <h2>Place order</h2>
+      <input type="text" v-model:value="name" placeholder="(Your Name)"><br>
+      <p>
+        By ordering, your contact information will be shared with us,
+        and we promise not to sell/share your data to any third-parties.
+        <br><br>
+        Note: SMS option works only on Android devices
+      </p>
+      <button v-on:click="orderwa">Order Via WhatsApp</button><br>
+    </div>
+  </section>
+  
+  <div id="footer" v-if="nitems>0 && !cartpage">
+    <span>{{nitems}} item<span v-if="nitems>1">s</span> in cart</span>
+    <a href="#checkout">Checkout</a>
+  </div>
+  
+</div>
+<script type="text/x-template" id="shop-item-template">
+  <div class="shopitem" v-bind:class="{compact:compact}">
+    
+    <div 
+      class="image-holder" 
+      style="grid-area: 1 / 1 / 4 / 2;" 
+      v-bind:style="'background:url('+'/inventory/images/onion.jpg'+'); background-size: cover; background-position: center center;'"
+    >
+      
+    </div>
+    
+    <span class="name" style="grid-area: 1 / 2 / 2 / 4;">{{name}}</span>
+    
+    <span class="price" style="grid-area: 2 / 2 / 3 / 4;">{{$parent.settings.currency}}{{unitprice}}/{{unit}}</span>
+    
+    <div style="grid-area: 3 / 2 / 4 / 3;" v-if="instock=='yes' && addtocart && value<=0">
+      <button  v-on:click="increment">Add to cart</button>
+    </div>
+    <div style="grid-area: 3 / 2 / 4 / 3;" v-else-if="instock!='yes'">
+      <span style="grid-area: 3 / 2 / 4 / 3;" class="outofstock">Out of Stock</span>
+    </div>
+    
+    <div style="grid-area: 3 / 2 / 4 / 3;" class="qctrl" v-else>
+      <span class="icon" v-on:click="decrement">r</span>
+      <input v-bind:value="value" type="number" min="-0.00001" v-on:input="change">
+      <span class="icon" v-on:click="increment">a</span>
+    </div>
+    
+    <span class="total" 
+      style="grid-area: 3 / 3 / 4 / 4; justify-self: right; padding-right: 5mm;" 
+      v-if="value>0">
+        {{$parent.settings.currency}}{{(value*unitprice).toFixed(2)}}
+    </span>
+
+    <details v-if="!compact" style="grid-area: 4 / 1 / 5 / 4 ;">
+      <summary>Description</summary>
+      {{description}}
+    </details>
+  </div>
+</script>
+</body>
+</html>

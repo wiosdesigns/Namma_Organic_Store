@@ -37,20 +37,27 @@ function items_loaded(){
   console.log(items);
   categories = [];
   
+  var phoneitem;
   for(var i=0;i<items.length;i++){
     if(!categories.includes(items[i].Category)){
       categories.push(items[i].Category);
+    }
+    if(items[i].Name=="whatsapp_number"){
+      setting.shopphone="91"+items[i].image;
+      phoneitem=i
     }
     items[i].quantity = 0;
     items[i].match = true;
     items[i]['In Stock'] = items[i]['In Stock'].toLowerCase();
     //items[i]['Featured'] = items[i]['Featured'].toLowerCase();
   }
+	
+  items.splice(phoneitem,1)
   
   items.sort(function(item_a,item_b){
     return item_a.Name.localeCompare(item_b.Name);
-  });
-  
+  })
+	
   Vue.component('shop-item',{
     props: ['name','image','category','unitprice','unit','instock','description','value','compact'],
     template: '#shop-item-template',

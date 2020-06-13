@@ -174,10 +174,6 @@ header{
   border-bottom: 0.5mm solid var(--theme);
   color: var(--theme);
 }
-.shopitem.compact>*{
-  padding: 0 2mm;
-  margin:0;
-}
 .shopitem.compact{
   grid-template-columns: 1fr auto;
   grid-template-rows:  auto auto;
@@ -190,7 +186,7 @@ header{
   grid-area: 2 / 2 / 3 / 3;
 }
 .shopitem.compact .image-holder{
-  display: none;
+  display: none!important;
 }  
 .shopitem.compact .price{
   grid-area: 2 / 3 / 3 / 4;

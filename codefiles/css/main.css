@@ -185,14 +185,15 @@ header{
 }
 .shopitem.compact .name{
   color: var(--theme);
-  grid-area: 2 / 2 / 3 / 3;
+  grid-area: 1 / 1 / 2 / 2;
 }
-.shopitem.compact img{
+.compact img{
   height: 0;
   width: 0;
+  display: none;
 }  
 .shopitem.compact .price{
-  grid-area: 2 / 3 / 3 / 4;
+  grid-area: 1 / 2 / 2 / 3;
 }
 .shopitem.compact .total{
   color: var(--theme);

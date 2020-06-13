@@ -135,14 +135,14 @@
       <span style="grid-area: 3 / 2 / 4 / 3;" class="outofstock">Out of Stock</span>
     </div>
     
-    <div style="grid-area: 3 / 2 / 4 / 3;" class="qctrl" v-else>
+    <div class="qctrl" v-else>
       <span class="icon" v-on:click="decrement">r</span>
       <span class="qty-display">{{value}}</span>
       <span class="icon" v-on:click="increment">a</span>
     </div>
     
     <span class="total" 
-      style="grid-area: 3 / 3 / 4 / 4; justify-self: right; padding-right: 5mm;" 
+      style="justify-self: right; padding-right: 5mm;" 
       v-if="value>0">
         {{$parent.settings.currency}}{{(value*unitprice).toFixed(2)}}
     </span>

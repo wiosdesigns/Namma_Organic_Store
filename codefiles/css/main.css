@@ -180,6 +180,8 @@ header{
 .shopitem.compact{
   grid-template-columns: 0 1fr auto;
   grid-template-rows:  0 auto auto;
+  grid-gap: 0 2mm;
+  padding: 0 2mm;
 }
 .shopitem.compact .name{
   color: var(--theme);

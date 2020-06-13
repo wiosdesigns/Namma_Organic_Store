@@ -167,8 +167,8 @@ header{
   font-family: font1;
   font-size: inherit;
   width: 100%;
-  border-bottom: 0.5mm solid var(--fg);
   text-align: center;
+  color: var(--theme);
 }
 .qctrl input:active,.qctrl input:focus{
   border-bottom: 0.5mm solid var(--theme);

@@ -128,7 +128,7 @@
     
     <span class="price">{{$parent.settings.currency}}{{unitprice}}/{{unit}}</span>
     
-    <div style="grid-area: 3 / 2 / 4 / 3;" v-if="instock=='yes' && addtocart && value<=0">
+    <div style="grid-area: 3 / 2 / 4 / 3;" v-if="instock=='yes' && value<=0">
       <button v-on:click="increment" class="addtocart" style="width: 100%; padding: 0.5mm 3mm; font-size: 80%;">Add to cart</button>
     </div>
     <div style="grid-area: 3 / 2 / 4 / 3;" v-else-if="instock!='yes'">

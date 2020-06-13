@@ -11,7 +11,7 @@ let settings = {
 };
 
 function init(){
-  Papa.parse(settings.inventoryURL, {
+  Papa.parse(settings.inventoryURL+"&_=", {
 	  download: true,
 	  header: true,
 	  complete: function(results) {

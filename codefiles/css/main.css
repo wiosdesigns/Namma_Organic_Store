@@ -127,7 +127,7 @@ header{
   margin: 5mm 0mm;
   box-shadow: 0 0.25mm 2mm rgba(0,0,0,0.3);
   grid-template-columns: 3cm 1fr auto;
-  grid-template-rows:  0.8cm 0.8cm 1.4cm auto;
+  grid-template-rows: auto 0.8cm 1.4cm auto;
   text-align: left;
   justify-items: start;
   align-items: center;  

@@ -183,6 +183,7 @@ header{
   grid-template-rows:  0 auto auto;
   grid-gap: 0 2mm;
   padding: 0 2mm;
+  height: auto;
 }
 .shopitem.compact .name{
   color: var(--theme);

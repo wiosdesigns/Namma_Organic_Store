@@ -187,8 +187,9 @@ header{
   color: var(--theme);
   grid-area: 2 / 2 / 3 / 3;
 }
-.compact img{
-  display: none;
+.shopitem.compact img{
+  height: 0;
+  width: 0;
 }  
 .shopitem.compact .price{
   grid-area: 2 / 3 / 3 / 4;

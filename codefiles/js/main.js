@@ -39,12 +39,14 @@ function items_loaded(){
   
   var phoneitem;
   for(var i=0;i<items.length;i++){
-    if(!categories.includes(items[i].Category)){
-      categories.push(items[i].Category);
-    }
     if(items[i].Name=="whatsapp_number"){
       settings.shopphone="91"+items[i].Image;
-      phoneitem=i
+      phoneitem=i;
+      continue;	    
+    }
+    	  
+    if(!categories.includes(items[i].Category)){
+      categories.push(items[i].Category);
     }
     items[i].quantity = 0;
     items[i].match = true;

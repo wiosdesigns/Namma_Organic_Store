@@ -176,12 +176,11 @@ header{
 }
 .shopitem.compact{
   grid-template-columns: 0 1fr auto;
-  grid-template-rows:  0 0.8cm auto;
+  grid-template-rows:  0 auto auto;
   padding-top: 2mm;
 }
 .shopitem.compact .name{
   color: var(--theme);
-  padding: 5mm 2mm;
   grid-area: 2 / 2 / 3 / 3;
 }
 .shopitem.compact .price{

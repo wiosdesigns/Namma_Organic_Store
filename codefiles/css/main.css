@@ -181,6 +181,7 @@ header{
 }
 .shopitem.compact .name{
   color: var(--theme);
+  padding-top: 2mm;
   grid-area: 2 / 2 / 3 / 3;
 }
 .shopitem.compact .price{

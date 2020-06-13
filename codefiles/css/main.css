@@ -176,6 +176,7 @@ header{
 }
 .shopitem.compact>*{
   padding: 0 2mm;
+  margin:0;
 }
 .shopitem.compact{
   grid-template-columns: 0 1fr auto;

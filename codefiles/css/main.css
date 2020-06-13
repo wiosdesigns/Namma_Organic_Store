@@ -197,7 +197,12 @@ header{
 }
 .shopitem.compact .total{
   color: var(--theme);
+  grid-area: 2 / 2 / 3 / 3;
 }
+.compact .qctrl{
+  grid-area: 2 / 1 / 3 / 2;
+}
+
 .outofstock{
   color: var(--error);
 }

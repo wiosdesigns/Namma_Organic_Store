@@ -158,7 +158,7 @@ header{
   align-items: center;
   max-width: 4cm;
 }
-.qctrl input{
+.qctrl .qty-display{
   display: inline-block;
   background: none;
   border: 0.5mm solid transparent;

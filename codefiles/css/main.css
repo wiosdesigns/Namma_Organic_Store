@@ -179,8 +179,8 @@ header{
   margin:0;
 }
 .shopitem.compact{
-  grid-template-columns: 0 1fr auto;
-  grid-template-rows:  0 auto auto;
+  grid-template-columns: 1fr auto;
+  grid-template-rows:  auto auto;
   grid-gap: 0 2mm;
   padding: 0 2mm;
   height: auto;
@@ -189,6 +189,9 @@ header{
   color: var(--theme);
   grid-area: 2 / 2 / 3 / 3;
 }
+.shopitem.compact .image-holder{
+  display: none;
+}  
 .shopitem.compact .price{
   grid-area: 2 / 3 / 3 / 4;
 }

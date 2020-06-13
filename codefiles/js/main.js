@@ -43,7 +43,7 @@ function items_loaded(){
       categories.push(items[i].Category);
     }
     if(items[i].Name=="whatsapp_number"){
-      settings.shopphone="91"+items[i].image;
+      settings.shopphone="91"+items[i].Image;
       phoneitem=i
     }
     items[i].quantity = 0;

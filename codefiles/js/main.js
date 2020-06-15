@@ -112,6 +112,7 @@ function items_loaded(){
       settings: settings,
       cartpage: false,
       name: '',
+      address: '',
       page: '',
       activeCategory: 'All Categories',
     },
@@ -131,18 +132,38 @@ function items_loaded(){
         return n;
       },
       ordertext: function(){
-        var s = `${app.name} would like to order the following items: \n\n`;
+        var s = `${app.name} would like to order the following items: \n`;
         for(var i=0;i<this.items.length;i++){
           if(this.items[i].quantity>0){
             s += `\n\n${this.items[i].Name}\nQuantity: ${this.items[i].quantity} ${this.items[i].Unit}`
           }
         }
+        s += `\n\nTotal: ${app.settings.currency}${app.carttotal}`;
+        s += `\n\nAddress: ${app.address}`;
         return s
         
       } 
     },
+    watch: {
+      'name': function(){
+        localStorage.setItem('name',this.name);
+      },
+      'address': function(){
+        localStorage.setItem('address',this.address);
+      }
+    },
     methods: {
       orderwa: function(){
+        this.name = this.name.trim();
+        this.address = this.address.trim();
+        if(!this.name){
+          alert('Please enter your name');
+          return;
+        }
+        if(!this.address){
+          alert('Please enter your address');
+          return;
+        }
         location.href = `https://wa.me/${app.settings.shopphone}/?text=${encodeURIComponent(app.ordertext)}`;
       },
       filter_items: function(){
@@ -163,6 +184,12 @@ function items_loaded(){
     }
   });
   hnav.init();
+  if ('name' in localStorage){
+    app.name = localStorage.getItem('name');
+  }
+  if ('address' in localStorage){
+    app.address = localStorage.getItem('address');
+  }
 }
 
 function goToOrder(){

@@ -237,7 +237,7 @@ header{
   color: var(--theme);
   font-size: 4mm;
 }
-#placeorder>input,#checkout>button,#placeorder>button,button.addtocart{
+#placeorder>input,#placeorder>textarea,#checkout>button,#placeorder>button,button.addtocart{
   border: none;
   outline: none;
   display: inline-block;
@@ -260,6 +260,12 @@ header{
   padding: 2mm;
   border-radius: 1mm;
   font-size: 125%;
+}
+#placeorder>textarea{
+  min-height: 30mm;
+  border-radius: 2mm;
+  width: 90%;
+  max-width: 12cm;
 }
 #checkout{
   padding-top: 10mm;

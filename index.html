@@ -67,7 +67,7 @@
         v-for="i in items" 
         v-bind:name="i.Name"
         v-bind:image="i.Image"
-        v-if="i.match"
+        v-if="i.match && i.['In Stock']"
         v-bind:description="i.Description"
         v-bind:unitprice="i['Unit Price']"
         v-bind:unit="i['Unit']"

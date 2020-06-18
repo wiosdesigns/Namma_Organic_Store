@@ -2,7 +2,7 @@ let items;
 let inventory;
 let categories;
 let settings = {
-  showOutOfStockItems: true,
+  showOutOfStockItems: false,
   showDescription: false,
   currency: '₹',
   shopphone: '919844923849',

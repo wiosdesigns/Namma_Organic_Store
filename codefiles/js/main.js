@@ -7,19 +7,20 @@ let settings = {
   currency: '₹',
   shopphone: '919844923849',
   shopemail: 'None',
-  inventoryURL: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQrhRdVZPtI-b7hYzzTa_bAmGE8oax_vOAw58L2feiVQ0fXvVRRYV4jG4Lf-PprLuUdfQmSs1o2XNp1/pub?gid=0&single=true&output=csv'
+  inventoryURL: 'https://docs.google.com/spreadsheets/d/1-nPhN7wEQCGwWpt1KI6yY0FzP1-dGLgK2HRFMdG2R7g/pubhtml'
 };
 
 function init(){
-  Papa.parse(settings.inventoryURL+"&_="+(new Date()).getTime(), {
-	  download: true,
-	  header: true,
-	  complete: function(results) {
-		  items = results.data;
-		  items_loaded();
-	  }
+  Tabletop.init({
+    key: settings.inventoryURL,
+    simpleSheet: true
+  
+  }).then(function(data,tabletop) {
+		items = data;
+		items_loaded();
   });
 }
+
 
 function sanitizeFloat(n){
   n = n.toFixed(3);

@@ -62,7 +62,7 @@ function items_loaded(){
   })
 	
   Vue.component('shop-item',{
-    props: ['name','image','category','unitprice','unit','instock','description','value','compact'],
+    props: ['name','farm','image','category','unitprice','unit','instock','description','value','compact'],
     template: '#shop-item-template',
     data: function(){
       return {

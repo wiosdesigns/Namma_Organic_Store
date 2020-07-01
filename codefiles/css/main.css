@@ -142,7 +142,7 @@ header{
   height: 3cm;
   padding: 0;
   border-radius: 2mm;
-  align-self: start;
+  align-self: center;
 }
 .shopitem .name{
   color: var(--theme);

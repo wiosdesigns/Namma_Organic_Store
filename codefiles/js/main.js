@@ -5,7 +5,7 @@ let settings = {
   showOutOfStockItems: false,
   showDescription: false,
   currency: '₹',
-  shopphone: '919844923849',
+  shopphone: '919538065734',
   shopemail: 'None',
   inventoryURL: 'https://docs.google.com/spreadsheets/d/1-nPhN7wEQCGwWpt1KI6yY0FzP1-dGLgK2HRFMdG2R7g/pubhtml'
 };

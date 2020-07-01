@@ -127,19 +127,20 @@ header{
   background: var(--bg2);
   margin: 5mm 0mm;
   box-shadow: 0 0.25mm 2mm rgba(0,0,0,0.3);
-  grid-template-columns: 3cm 1fr auto;
-  grid-template-rows: auto auto 1.4cm auto;
+  grid-template-columns: 30vw 1fr auto;
+  grid-template-rows: auto auto auto auto;
   text-align: left;
   justify-items: start;
-  align-items: center;  
+  align-items: center;
+  font-size: 4mm;  
 }
 .shopitem>*{
   display: inline-block;
-  padding: 2mm;
+  padding: 0 2mm;
 }
 .shopitem .image-holder{
   width: 100%;
-  height: 3cm;
+  height: 30vw;
   padding: 0;
   border-radius: 2mm;
   align-self: center;

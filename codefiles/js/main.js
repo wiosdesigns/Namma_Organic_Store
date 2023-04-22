@@ -17,7 +17,7 @@ async function init(){
   Papa.parse(body, {
     header: true,
     complete: function(results) {
-      item = results.data;
+      items = results.data;
       items_loaded();
     }
   });

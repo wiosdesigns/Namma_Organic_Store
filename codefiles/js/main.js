@@ -12,7 +12,7 @@ let settings = {
 };
 
 function init(){
-  Papa.parse(setting.invetoryURL, {
+  Papa.parse(settings.invetoryURL, {
     download: true,
     header: true,
     complete: function(results) {

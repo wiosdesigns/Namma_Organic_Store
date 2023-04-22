@@ -12,7 +12,7 @@ let settings = {
 };
 
 async function init(){
-  const response = await fetch(settings.invetoryURL);
+  const response = await fetch(settings.inventoryURL);
   const body = await response.text();
   Papa.parse(body, {
     header: true,

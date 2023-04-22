@@ -11,9 +11,10 @@ let settings = {
   inventoryURLOld: 'https://docs.google.com/spreadsheets/d/1-nPhN7wEQCGwWpt1KI6yY0FzP1-dGLgK2HRFMdG2R7g/pubhtml'
 };
 
-function init(){
-  Papa.parse(settings.invetoryURL, {
-    download: true,
+async function init(){
+  const response = await fetch(settings.invetoryURL);
+  const body = await response.text();
+  Papa.parse(body, {
     header: true,
     complete: function(results) {
       item = results.data;
